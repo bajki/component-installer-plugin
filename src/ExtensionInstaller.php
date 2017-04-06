@@ -8,7 +8,6 @@ use Antares\Extension\Helpers\PathHelper;
 use Composer\Package\PackageInterface;
 use Composer\Installer\LibraryInstaller;
 use InvalidArgumentException;
-use function base_path;
 
 abstract class ExtensionInstaller extends LibraryInstaller {
 
@@ -49,9 +48,9 @@ abstract class ExtensionInstaller extends LibraryInstaller {
 
 		list(, $name) = explode('/', $name);
 
-		$rootDirectory = __DIR__ . '/../../../../';
+		$srcDirectory = __DIR__ . '/../../../../src/';
 
-        return $rootDirectory. $this->getPackageDirectory() . '/'. trim(str_replace('-', '_', $name));
+        return $srcDirectory . $this->getPackageDirectory() . '/'. trim(str_replace('-', '_', $name));
 	}
 
 }
