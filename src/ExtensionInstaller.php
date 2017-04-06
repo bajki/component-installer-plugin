@@ -49,8 +49,10 @@ abstract class ExtensionInstaller extends LibraryInstaller {
 		list(, $name) = explode('/', $name);
 
 		$srcDirectory = __DIR__ . '/../../../../src/';
+		$name = trim(str_replace('-', '_', $name));
+        $name = str_replace('component_', '', $name);
 
-        return $srcDirectory . $this->getPackageDirectory() . '/'. trim(str_replace('-', '_', $name));
+        return $srcDirectory . $this->getPackageDirectory() . '/'. $name;
 	}
 
 }
