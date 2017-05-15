@@ -53,12 +53,9 @@ abstract class ExtensionInstaller extends LibraryInstaller
         $baseDir      = __DIR__ . '/../../../../src/';
         $srcDirectory = $baseDir . (strpos($package->getType(), 'component') ? 'core/src/modules/' : $this->getPackageDirectory());
 
-        var_dump($this->getPackageDirectory(), $package->getType());
-
         $name = trim(str_replace('-', '_', $name));
         $name = str_replace(['component_', 'module_'], '', $name);
-        var_dump($srcDirectory . '/' . $name);
-        exit;
+
 
         return $srcDirectory . '/' . $name;
     }
