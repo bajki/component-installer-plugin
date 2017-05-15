@@ -51,7 +51,7 @@ abstract class ExtensionInstaller extends LibraryInstaller
         list(, $name) = explode('/', $name);
 
         $baseDir      = __DIR__ . '/../../../../src/';
-        $srcDirectory = $baseDir . strpos($package->getType(), 'component') ? 'core/src/modules/' : $this->getPackageDirectory();
+        $srcDirectory = $baseDir . (strpos($package->getType(), 'component') ? 'core/src/modules/' : $this->getPackageDirectory());
         $name         = trim(str_replace('-', '_', $name));
         $name         = str_replace(['component_', 'module_'], '', $name);
 
