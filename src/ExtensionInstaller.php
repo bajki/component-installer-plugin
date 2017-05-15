@@ -32,8 +32,15 @@ abstract class ExtensionInstaller extends LibraryInstaller
      */
     public function supports($packageType)
     {
-        $subTypes = $this->getPackageSubType();
 
+
+        var_dump('support', $packageType, $this->support($packageType));
+        return $this->support($packageType);
+    }
+
+    protected function support($packageType)
+    {
+        $subTypes = $this->getPackageSubType();
         if (is_array($subTypes)) {
             foreach ($subTypes as $subType) {
                 if ($packageType === (self::VENDOR_TYPE . '-' . $subType)) {
@@ -65,7 +72,7 @@ abstract class ExtensionInstaller extends LibraryInstaller
 
         $name = trim(str_replace('-', '_', $name));
         $name = str_replace(['component_', 'module_'], '', $name);
-
+        var_dump('getInstallPath', $name, $package->getType(), $srcDirectory);
 
         return $srcDirectory . '/' . $name;
     }
