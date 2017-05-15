@@ -32,9 +32,6 @@ abstract class ExtensionInstaller extends LibraryInstaller
      */
     public function supports($packageType)
     {
-
-
-        var_dump('support', $packageType, $this->support($packageType));
         return $this->support($packageType);
     }
 
@@ -72,7 +69,6 @@ abstract class ExtensionInstaller extends LibraryInstaller
 
         $name = trim(str_replace('-', '_', $name));
         $name = str_replace(['component_', 'module_'], '', $name);
-        var_dump('getInstallPath', $name, $package->getType(), $srcDirectory);
 
         return $srcDirectory . '/' . $name;
     }
