@@ -1,23 +1,26 @@
 <?php
 
-declare(strict_types=1);
+declare(strict_types = 1);
 
 namespace Antares\ComponentPlugin;
 
-class ComponentInstaller extends ExtensionInstaller {
+class ComponentInstaller extends ExtensionInstaller
+{
 
     /**
      * {@inheritDoc}
      */
-    public function getPackageSubType() {
+    public function getPackageSubType()
+    {
         return 'component';
     }
 
-	/**
-	 * {@inheritDoc}
-	 */
-	public function getPackageDirectory() {
-		return 'components';
-	}
+    /**
+     * {@inheritDoc}
+     */
+    public function getPackageDirectory()
+    {
+        return 'modules';
+    }
 
 }
