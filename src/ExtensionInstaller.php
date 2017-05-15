@@ -32,7 +32,17 @@ abstract class ExtensionInstaller extends LibraryInstaller
      */
     public function supports($packageType)
     {
-        return $packageType === (self::VENDOR_TYPE . '-' . $this->getPackageSubType());
+        $subTypes = $this->getPackageSubType();
+
+        if (is_array($subTypes)) {
+            foreach ($subTypes as $subType) {
+                if ($packageType === (self::VENDOR_TYPE . '-' . $subType)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return $packageType === (self::VENDOR_TYPE . '-' . $subTypes);
     }
 
     /**
@@ -51,7 +61,7 @@ abstract class ExtensionInstaller extends LibraryInstaller
         list(, $name) = explode('/', $name);
 
         $baseDir      = __DIR__ . '/../../../../src/';
-        $srcDirectory = $baseDir . (strpos($package->getType(), 'component') ? 'core/src/modules/' : $this->getPackageDirectory());
+        $srcDirectory = $baseDir . (strpos($package->getType(), 'component') ? 'core/src/modules/' : 'modules/');
 
         $name = trim(str_replace('-', '_', $name));
         $name = str_replace(['component_', 'module_'], '', $name);
