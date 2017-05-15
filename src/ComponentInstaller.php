@@ -12,7 +12,7 @@ class ComponentInstaller extends ExtensionInstaller
      */
     public function getPackageSubType()
     {
-        return 'component';
+        return 'module';
     }
 
     /**
