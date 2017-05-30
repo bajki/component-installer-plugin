@@ -1,4 +1,4 @@
-# Antares Component Installer Plugin for Composer
+# Antares Module Installer Plugin for Composer
 
 [![Laravel 5.4](https://img.shields.io/badge/Laravel-5.4-orange.svg)](http://laravel.com)
 [![Coverage Status](https://coveralls.io/repos/github/antaresproject/project/badge.svg?branch=master)](https://coveralls.io/github/antaresproject/project?branch=master)
