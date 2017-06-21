@@ -64,8 +64,12 @@ abstract class ExtensionInstaller extends LibraryInstaller
 
         list(, $name) = explode('/', $name);
 
+        $extra = $package->getExtra();
+
+        $category = isset($extra['category']) ? $extra['category'] : 'default';
+
         $baseDir      = __DIR__ . '/../../../../src/';
-        $srcDirectory = $baseDir . (strpos($package->getType(), 'component') ? 'core/src/modules/' : 'modules/');
+        $srcDirectory = $baseDir . (strpos($package->getType(), 'component') ? 'modules/core/' : 'modules/' . $category . '/');
 
         $name = trim(str_replace('-', '_', $name));
         $name = str_replace(['component_', 'module_'], '', $name);
